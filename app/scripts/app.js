@@ -25,9 +25,9 @@ angular
                     controller: 'MainCtrl',
                     controllerAs: 'main'
                 })
-                .when('/about', {
-                    templateUrl: 'views/about.html',
-                    controller: 'AboutCtrl',
+                .when('/pickuporder', {
+                    templateUrl: 'views/pickuporder.html',
+                    controller: 'PickuporderCtrl',
                     controllerAs: 'about'
                 })
                 .otherwise({

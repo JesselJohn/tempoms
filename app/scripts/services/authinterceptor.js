@@ -1,6 +1,5 @@
 'use strict';
 
-
 ! function(window, angular, undefined) {
     angular.module('omsieApp')
         .factory('AuthInterceptor', ['$rootScope', '$q', '$cookieStore', '$location',

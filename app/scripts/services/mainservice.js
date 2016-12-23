@@ -11,11 +11,7 @@ angular.module('omsieApp')
     .factory('MainService', ['CONSTANTS', '$http', '$q',
         function(CONSTANTS, $http, $q) {
             var MainService = {
-                /**
-                 * [Get Dashboard Data]
-                 * @return {Object} [Promise]
-                 */
-                getDashboardData: function() {
+                getReturnData: function() {
                     var defer = $q.defer();
                     $http({
                         method: 'GET',
@@ -24,6 +20,18 @@ angular.module('omsieApp')
                             "returnMode=RETURNTOSTORE&" +
                             "page=0&" +
                             "size=1"
+                    }).success(function(data) {
+                        defer.resolve(data);
+                    }).error(function(err) {
+                        defer.reject(err);
+                    });
+                    return defer.promise;
+                },
+                getDashboardData: function() {
+                    var defer = $q.defer();
+                    $http({
+                        method: 'GET',
+                        url: CONSTANTS.API_URL + "/api/statuscount/dashboardCount"
                     }).success(function(data) {
                         defer.resolve(data);
                     }).error(function(err) {

@@ -8,10 +8,19 @@
  * Controller of the omsieApp
  */
 angular.module('omsieApp')
-    .controller('MainCtrl', ['$scope', 'MainService',
-        function($scope, MainService) {
+    .controller('MainCtrl', ['MainService', 'MainData', '$scope',
+        function(MainService, MainData, $scope) {
+            /////////////////////////////
+            // Scope Property Bindings //
+            /////////////////////////////
+
+            $scope.MainData = MainData;
+
+            ///////////////////
+            // Service Calls //
+            ///////////////////
             MainService.getDashboardData().then(function(data) {
-                console.log(data);
+                $scope.data = data;
             });
         }
     ]);

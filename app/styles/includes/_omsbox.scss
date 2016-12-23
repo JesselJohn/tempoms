@@ -1,0 +1,40 @@
+.oms-box {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid $color-2;
+    background: #FFF;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.oms-box-th {
+    border-bottom: 1px solid $color-2;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.oms-box-table {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.oms-box-row {
+    display: table-row;
+    width: 100%;
+    border-bottom: 1px solid $color-2;
+    height: 30px;
+}
+
+.oms-box-col {
+    position: relative;
+    display: table-cell;
+    padding: 10px 5px;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+.oms-box-col-th {
+    @extend .oms-box-col;
+    font-weight: bold;
+}
