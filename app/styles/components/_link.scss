@@ -1,0 +1,13 @@
+.oms-link {
+    text-decoration: none;
+    cursor: pointer;
+    &.oms-link-white {
+        color: #FFF;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+    &.oms-bg:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}

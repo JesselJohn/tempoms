@@ -1,0 +1,5 @@
+{
+    "auth-server-url": "https://keycloak-qa.ailiens.com/auth",
+    "realm": "AILSecureQA",
+    "resource": "OptimusPrimeUI"
+}

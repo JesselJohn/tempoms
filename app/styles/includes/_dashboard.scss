@@ -1,0 +1,36 @@
+/**
+ * Dashboard Variables
+ */
+
+$box-header-padding: 5px 10px;
+
+/**
+ * Dashboard CSS
+ */
+
+._db {
+    .delivery-th,
+    .wrhouse-delivery-th,
+    .pickup-th,
+    .allorders-th,
+    .retorders-th {
+        color: #FFF;
+        padding: $box-header-padding;
+        font-size: $font-size-large;
+    }
+    .delivery-th {
+        background: $color-temp-3;
+    }
+    .wrhouse-delivery-th {
+        background: $color-temp-3;
+    }
+    .pickup-th {
+        background: $color-temp-4;
+    }
+    .allorders-th {
+        background: $color-temp-5;
+    }
+    .retorders-th {
+        background: $color-temp-6;
+    }
+}

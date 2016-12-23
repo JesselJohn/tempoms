@@ -1,0 +1,20 @@
+/**
+ * For Vertical Lists
+ */
+
+ul.oms-list-vertical {
+    padding-left: 0;
+}
+
+
+/**
+ * For Horizontal Lists
+ */
+
+ul.oms-list-inline {
+    padding-left: 0;
+    list-style: none;
+    li {
+        display: inline-block;
+    }
+}

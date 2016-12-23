@@ -1,0 +1,107 @@
+/**
+ * Header Variables
+ */
+
+$header-height: 50px;
+$navbar-links-height: 40px;
+
+/**
+ * Header Extends
+ */
+
+.top-bars-style {
+    display: inline-block;
+    height: 100%;
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+    li {
+        display: inline-block;
+        height: 100%;
+        &>a,
+        &>span {
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            line-height: $header-height;
+            padding: 0 10px;
+        }
+    }
+}
+
+
+/**
+ * Header CSS
+ */
+
+header {
+    height: $header-height;
+    width: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $header-height;
+    background: $color-1;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #FFF;
+}
+
+.navigation-links {
+    @extend .top-bars-style;
+}
+
+
+/**
+ * Sidebar CSS
+ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    width: 200px;
+    height: 100%;
+    overflow: auto;
+    background: $color-1;
+}
+
+.sidebar-links {
+    display: inline-block;
+    width: 100%;
+    ul {
+        margin: 0;
+        text-align: left;
+        width: 100%;
+    }
+    li {
+        display: block;
+        height: $navbar-links-height;
+        width: 100%;
+    }
+    a {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        line-height: $navbar-links-height;
+        padding-left: 15px;
+    }
+}
+
+
+/**
+ * User Info
+ */
+
+.header-user-info {
+    @extend .top-bars-style;
+    float: right;
+    span {
+        color: white;
+    }
+}
