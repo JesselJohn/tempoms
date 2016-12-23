@@ -11,7 +11,7 @@ angular.module('omsieApp')
     .controller('MainCtrl', ['$scope', 'MainService',
         function($scope, MainService) {
             MainService.getDashboardData().then(function(data) {
-                // console.log(data);
+                console.log(data);
             });
         }
     ]);

@@ -5,7 +5,7 @@ var config = config || {},
         switch (window.location.hostname) {
             case 'localhost':
                 return {
-                    'backend': 'http://localhost:4000'
+                    'backend': 'http://localhost:9000'
                 };
                 break;
             case 'optimusprimeui-env.us-east-1.elasticbeanstalk.com':

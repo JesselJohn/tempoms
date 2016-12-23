@@ -10,7 +10,6 @@
 angular.module('omsieApp')
     .factory('MainService', ['CONSTANTS', '$http', '$q',
         function(CONSTANTS, $http, $q) {
-            console.log(CONSTANTS);
             var MainService = {
                 /**
                  * [Get Dashboard Data]

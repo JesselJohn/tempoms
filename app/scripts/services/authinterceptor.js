@@ -47,7 +47,6 @@
                             });
                         }
 
-                        console.log(config);
                         return deferred.promise;
                     },
                     response: function(response) {
