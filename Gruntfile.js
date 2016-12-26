@@ -99,7 +99,7 @@ module.exports = function(grunt) {
             },
             livereload: {
                 options: {
-                    open: true,
+                    open: false,
                     middleware: function(connect) {
                         return [
                             connect.static('.tmp'),
@@ -137,6 +137,11 @@ module.exports = function(grunt) {
                     open: true,
                     base: '<%= yeoman.dist %>'
                 }
+            }
+        },
+        open: {
+            server: {
+                url: 'http://localhost:<%= express.options.port %>'
             }
         },
 
@@ -495,7 +500,7 @@ module.exports = function(grunt) {
             'concurrent:server',
             'postcss:server',
             'express:dev',
-            'connect:livereload',
+            'open',
             'watch'
         ]);
     });
