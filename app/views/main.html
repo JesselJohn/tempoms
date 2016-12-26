@@ -4,7 +4,8 @@
         <div class="col-xs-6">
             <div class="oms-box">
                 <div class="oms-box-th allorders-th">
-                    2158
+                    <span ng-show="data">{{getAllOrdersNum()}}</span>
+                    <oms-loader data-width="15" data-height="15" ng-show="!data"></oms-loader>
                     <small>All Orders</small>
                 </div>
             </div>
@@ -12,7 +13,8 @@
         <div class="col-xs-6" style="clear:right;">
             <div class="oms-box">
                 <div class="oms-box-th retorders-th">
-                    15
+                    <span ng-show="returnData" ng-bind="returnData.totalElements"></span>
+                    <oms-loader data-width="15" data-height="15" ng-show="!returnData"></oms-loader>
                     <small>Return Orders</small>
                 </div>
             </div>

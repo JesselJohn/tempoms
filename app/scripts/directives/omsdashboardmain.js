@@ -40,9 +40,7 @@ angular.module('omsieApp')
                 '       </div>' +
                 '   </div>' +
                 '   <center ng-show="!data">' +
-                '       <svg width="30" height="30">' +
-                '           <image xlink:href="/images/rolling.svg" src="/images/rolling.gif" width="30" height="30" />' +
-                '       </svg>' +
+                '       <oms-loader data-width="30" data-height="30"></oms-loader>' +
                 '   </center>' +
                 '</div>',
             restrict: 'E',
