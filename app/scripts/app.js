@@ -12,7 +12,8 @@ angular
     .module('omsieApp', [
         'ngCookies',
         'ngRoute',
-        'ngSanitize'
+        'ngSanitize',
+        'ui.bootstrap'
     ])
     .constant('CONSTANTS', {
         'API_URL': "http://localhost:9000"
@@ -28,7 +29,12 @@ angular
                 .when('/pickuporder', {
                     templateUrl: 'views/pickuporder.html',
                     controller: 'PickuporderCtrl',
-                    controllerAs: 'about'
+                    controllerAs: 'pickup'
+                })
+                .when('/orderdetail/:consignmentId', {
+                    templateUrl: 'views/orderdetail.html',
+                    controller: 'OrderdetailCtrl',
+                    controllerAs: 'orderdetail'
                 })
                 .otherwise({
                     redirectTo: '/'

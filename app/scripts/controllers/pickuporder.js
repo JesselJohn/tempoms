@@ -8,11 +8,19 @@
  * Controller of the omsieApp
  */
 angular.module('omsieApp')
-    .controller('PickuporderCtrl', ['PickuporderService', '$scope',
-        function(PickuporderService, $scope) {
+    .controller('PickuporderCtrl', ['PickuporderService', 'PickupOrderData', '$scope',
+        function(PickuporderService, PickupOrderData, $scope) {
+            /////////////////////////////
+            // Scope Property Bindings //
+            /////////////////////////////
+
+            $scope.PickupOrderData = PickupOrderData;
+
+            ///////////////////
+            // Service Calls //
+            ///////////////////
             PickuporderService.getPickuporderData().then(function(data) {
                 $scope.pickUpdata = data;
-                console.log(data);
             });
         }
     ]);

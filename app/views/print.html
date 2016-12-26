@@ -1,0 +1,349 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/app/components/main/bootstrap.css">
+<style>
+  body,
+  h1,
+  h2,
+  h3,
+  h5,
+  h5,
+  h6 {
+    font-family: 'Bree Serif', serif;
+  }
+
+  div {
+    font-size: 11px;
+  }
+
+  td {
+    font-size: 10px;
+  }
+</style>
+<head>
+<style type="text/css" media="print">
+    @page 
+    {
+        size: auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+
+    body 
+    {
+        background-color:#FFFFFF; 
+        margin: 10px;  /* this affects the margin on the content before sending to printer */
+   }
+</style>
+</head>
+<div>
+  <img src="/app/images/header.png" style="margin-bottom: 5px;">
+</div>
+<div class="container" style=" border-style: ridge;">
+  <div class="row" style=" border-bottom-style: ridge;">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6 text-center">
+      <h4 style="margin-top: 8px;"><strong>INVOICE</strong></h4>
+    </div>
+    <div class="col-lg-3">
+    </div>
+  </div>
+  <div class="row" style=" border-bottom-style: ridge;" >
+    <div class="col-xs-6" style="border-right-style: ridge;">
+      <div class="panel panel-default" style="border:none;background-color:white;margin-top:5px;margin-bottom: 5px;">
+        <div class="panel-body" style="padding: 5px;">
+          <div><strong>Sold By : </strong>{{ffcenterDetails.soldBy}}</div>
+          <div><strong>Address :</strong>{{ffcenterDetails.streetNo}},{{ffcenterDetails.streetName}}</div>
+          <div>{{ffcenterDetails.city}},{{ffcenterDetails.pincode}}</div>
+          <div><strong>VAT/TIN :</strong>{{ffcenterDetails.tinNo}}</div>
+          <div><strong>PAN Number :</strong>{{ffcenterDetails.panNo}}</div>
+          <div><strong>CIN Number:</strong>{{ffcenterDetails.cinNo}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 ">
+      <div class="panel panel-default" style="border:none;background-color:white;margin-top:3px;margin-bottom: 3px;">
+        <div class="panel-body">
+          <div class="row">
+          <div class="col-xs-6">
+            <div><strong style="font-size:14px;">Order ID : <span class="text-right">{{consignmentDetails.orderID}}</span></strong></div>
+            <div><strong>Order Date :</strong> <span class="text-right">
+                    {{consignmentDetails.orderDate |date:'dd-MM-yyyy'}}</span></div>
+            <div><strong>Invoice No : </strong><span class="text-right">{{invoiceId}}</span></div>
+            <div><strong>Invoice Date : </strong><span class="text-right">
+                    {{invoiceDate |date:'dd-MM-yyyy'}}</span></div>
+            <div><strong>Shipping ID :</strong> {{consignmentDetails.consignmentID}}</div>
+          </div>
+          <div class="col-xs-6">
+            <io-barcode code="{{consignmentDetails.consignmentID}}" type="CODE128B" options="{width:1,height:50,displayValue:true}"></io-barcode>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style=" border-bottom-style: ridge;">
+    <div class="col-xs-6" style="border-right-style: ridge;">
+      <div class="panel panel-default" style="border:none;background-color:white;margin-top:5px;margin-bottom: 5px;">
+        <div class="panel-body" style="padding: 5px;">
+          <div ng-if="!isStorePickUp">
+            <div><strong>Ship To:</strong></div>
+            <strong>Customer Name:</strong>
+            <span class="text-right">{{addressDetails.details.name}}</span>
+            <br>
+          </div>
+          <div ng-if="!isStorePickUp">
+            <strong>Shipping Address/Billing Address :</strong>
+            <span> {{addressDetails.details.firstLine}},
+                        {{addressDetails.details.secondLine}}</span>
+            <br ng-if="!isStorePickUp">
+            <span class="text-right" ng-if="!isStorePickUp">{{addressDetails.details.city}} , {{addressDetails.details.state}}</span>
+            <br ng-if="!isStorePickUp">
+          </div>
+          <div ng-if="!isStorePickUp">
+            <strong>Pincode :</strong> {{addressDetails.details.pincode}}</div>
+          <div ng-if="!isStorePickUp">
+            <strong>Customer Phone No :</strong> {{addressDetails.details.mobileNumber}}</div>
+          <div>Mode of Payment : {{paymentDetails.paymentMode}}</div>
+          <div ng-if="paymentDetails.isCOD && grantTotal + logistic.shipmentCost - voucherAmount>0">
+            <div ng-if="logistic.isFEDEX">
+              <div style="margin-left:8px;">
+                <span ng-if="logistic.codAirwayBillNumber">TRK#{{logistic.codAirwayBillNumber}}</span>
+                <span ng-if="logistic.fedexReturnFormId">Form Id:{{logistic.fedexReturnFormId}}</span>
+              </div>
+              <div style="margin-left:8px;">
+                <span ng-if="logistic.fedexReturnShipmentType">{{logistic.fedexReturnShipmentType|uppercase}}</strong></span>
+                <span>COD RETURN</span>
+              </div>
+              <io-barcode code="{{logistic.codBarCode}}" type="CODE128C" options="{width:1,height:100,displayValue:false}"></io-barcode>
+
+              <br>
+            </div>
+          </div>
+          <div>Reference Number: {{consignmentDetails.orderID}}</div>
+
+
+          <span style="font-size:12px;" ng-if="paymentDetails.isCOD && grantTotal + logistic.shipmentCost - voucherAmount>0">
+                            <strong>Collectable Amount:</strong>
+                            {{grantTotal + logistic.shipmentCost - voucherAmount | currency:"Rs. ":2}}
+          </span>
+
+          <span style="font-size:12px;" ng-if="paymentDetails.isCOD && grantTotal + logistic.shipmentCost - voucherAmount <=0">
+                            <strong>Collectable Amount:</strong>
+                            {{ 0 | currency:"Rs. ":2}}
+          </span>
+
+          
+          <br ng-if="paymentDetails.isCOD">
+
+
+            <div 
+                    ng-if="paymentDetails.isCOD && grantTotal + logistic.shipmentCost - voucherAmount>0" 
+                    style="float: right;margin-top: -35px;margin-right:-10px;">
+            <span style="font-size:30px;">COD</span></div>
+            <div 
+                    ng-if="paymentDetails.isCOD && grantTotal + logistic.shipmentCost - voucherAmount<=0" 
+                    style="float: right;margin-top: -35px;margin-right:-10px;">
+            <span style="font-size:30px;">PREPAID</span></div>
+
+            <!-- delivery modification -->
+          <span style="font-size:12px;" ng-if="!paymentDetails.isCOD&&shippingdelta!==0">
+                            <strong>Collectable Amount:</strong>
+                            {{shippingdelta | currency:"Rs. ":2}}
+          </span>
+          <br ng-if="!paymentDetails.isCOD&&shippingdelta!==0">
+          <div ng-if="!paymentDetails.isCOD&&shippingdelta!==0">
+            <span style="font-size:30px;">COD</span>
+          </div>
+
+          <span style="font-size:12px;" ng-if="!paymentDetails.isCOD&&shippingdelta===0">
+                            <strong>Collectable Amount:</strong>
+                            {{0 | currency:"Rs. ":2}}
+          </span>
+          <div ng-if="!paymentDetails.isCOD&&shippingdelta===0">
+            <span style="font-size:30px;">PREPAID</span>
+          </div>
+
+          
+          <br ng-if="!paymentDetails.isCOD">
+          <br ng-if="!paymentDetails.isCOD">
+          <br ng-if="!paymentDetails.isCOD">
+          <br ng-if="!paymentDetails.isCOD">
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 ">
+      <div class="panel panel-default" style="border:none;background-color:white;margin-top:5px;margin-bottom: 5px;">
+        <div class="panel-body" style="padding: 5px;">
+          <div ng-if="isStorePickUp"><strong>Customer Name:</strong>
+            <span class="text-right">{{customerDetails.name}}</span>
+          </div>
+          <div ng-if="isStorePickUp">
+            <strong>Customer Phone No :</strong> {{customerDetails.phoneNumber}}</div>
+          <div ng-if="!isStorePickUp">
+            <strong style="font-size:14px;">
+                        Courier Name : {{logistic.shippingPatner}}
+                        </strong></div>
+          <div ng-if="!isStorePickUp">
+            <p ng-if="!logistic.isFEDEX">AWB Number :<span class="text-right">{{logistic.airwayBillNumber}}</span></p>
+          </div>
+          <div ng-if="!isStorePickUp">
+            <div ng-if="logistic.isFEDEX && logistic.fedexForwardShipmentType" style="margin-left:8px;">
+              <span>
+                                <strong>{{logistic.fedexForwardShipmentType | uppercase}}
+                                </strong>
+                            </span>
+            </div>
+            <div style="margin-left:8px;" ng-if="logistic.isFEDEX">
+              <span><bold ng-if="logistic.isFEDEX">TRK# {{logistic.airwayBillNumber}}</bold></span>
+              <span ng-if="logistic.fedexForwardFormId">Form Id:{{logistic.fedexForwardFormId}}</span>
+            </div>
+            <div style="margin-left:8px;">
+              <span ng-if="logistic.dcCode"><strong style="font-size:18px;">{{logistic.dcCode | uppercase}}</strong></span>
+              <span ng-if="logistic.countryCode"><strong
+                            style="margin-left:9px;">-{{logistic.countryCode | uppercase}}</strong></span>
+              <span ng-if="logistic.cityCode"><strong
+                            style="margin-left:9px;">{{logistic.cityCode| uppercase}}</strong></span>
+              <span style="margin-left:20px;">{{addressDetails.details.pincode}}</span>
+            </div>
+            <p ng-if="logistic.isFEDEX">
+              <io-barcode code="{{logistic.barCode}}" type="CODE128C" options="{width:1,height:100,displayValue:false}"></io-barcode>
+            </p>
+            <p ng-if="!logistic.isFEDEX">
+              <io-barcode code="{{logistic.barCode}}" type="CODE128B" options="{width:1,height:50,displayValue:false}"></io-barcode>
+            </p>
+
+            <!-- <barcode type="code128b" render="img" string="{{logistic.barCode}}" options="baroptions"></barcode> -->
+            <div ng-if="logistic.isFEDEX" style="margin-left:8px;margin-top:-2px;">
+              <span><strong>Meter#{{logistic.fedexMeter| uppercase}}</strong></span>
+              <span><strong>Bill T/C-{{logistic.fedexBillTc | uppercase}}</strong></span>
+              <span><strong>Bill D/C-{{logistic.fedexBillDt| uppercase}}</strong></span>
+            </div>
+          </div>
+          <div ng-if="!isStorePickUp">
+            <strong>Delivery Type :</strong> {{deliveryTypeForPrint | uppercase}}</div>
+          <div ng-if="!isStorePickUp">If Undelivered, Please return to :{{ffcenterDetails.fcName}}</div>
+          <div ng-if="!isStorePickUp">{{ffcenterDetails.streetNo}},{{ffcenterDetails.streetName}},{{ffcenterDetails.town}},{{ffcenterDetails.city}},{{ffcenterDetails.pincode}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- / end client details section -->
+  <div style="margin-top:5px"></div>
+  <table class="table  table-bordered">
+    <thead>
+      <tr>
+        <th>
+          <div>Product ID</div>
+        </th>
+        <th>
+          <div>Product Description</div>
+        </th>
+        <th>
+          <div>Qty</div>
+        </th>
+        <th>
+          <div>MRP</div>
+        </th>
+        <th>
+          <div>Amount</div>
+        </th>
+        <th>
+          <div>Discount</div>
+        </th>
+        <th>
+          <div>Value</div>
+        </th>
+        <th>
+          <div>Tax(VAT/CST)</div>
+        </th>
+        <th>
+          <div>Total</div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in items">
+        <td>{{item.skuID}}</td>
+        <td>{{item.description}}</td>
+        <td class="text-right">{{item.quantityOrder}}</td>
+        <td class="text-right">{{item.mrp}}</td>
+        <td class="text-right">{{item.totalmrp}}</td>
+        <td class="text-right">{{item.totaldiscount}}</td>
+        <td class="text-right">{{item.totalvalue}}</td>
+        <td class="text-right">{{item.totaltax}}</td>
+        <td class="text-right">{{item.totalNetAmount}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row text-right" style="bottom-border-style:solid margin-top:5px;">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-4 col-xs-offset-3">
+      <p>
+        <strong style="font-size:14px;">
+            <span>Grand Total :</span> <br>
+            <span ng-if="!isStorePickUp">Shipping Cost:  </span><br ng-if="!isStorePickUp">
+            <span ng-if="voucherAmount!==0">Voucher Amount:  </span><br ng-if="voucherAmount!==0">
+
+            <span ng-if="paymentDetails.isCOD" ><bold>AMOUNT TO BE PAID :</bold></span><br ng-if="paymentDetails.isCOD">
+
+
+            <span ng-if="!paymentDetails.isCOD" >AMOUNT PAID : </span><br ng-if="!paymentDetails.isCOD">
+            <span ng-if="!paymentDetails.isCOD&&shippingdelta!==0" >REMAINING AMOUNT : </span>
+                <br
+                        ng-if="!paymentDetails.isCOD&&shippingdelta!==0">
+            </strong>
+      </p>
+    </div>
+    <div class="col-xs-2">
+      <strong style="font-size:14px;">
+          
+          <span>{{grantTotal | currency:"Rs. ":2}} </span><br>
+          <span ng-if="!isStorePickUp">{{logistic.shipmentCost | currency:"Rs. ":2}}</span><br ng-if="!isStorePickUp">
+
+
+        <span ng-if="voucherAmount!==0" >{{voucherAmount | currency:"Rs. ":2}} </span><br ng-if="voucherAmount!==0">
+
+
+          <span ng-if="paymentDetails.isCOD" style="border-bottom-style: ridge;border-top-style: ridge;">{{grantTotal  + logistic.shipmentCost - voucherAmount | currency:"Rs. ":2}} </span><br ng-if="paymentDetails.isCOD">
+
+
+          <span ng-if="!paymentDetails.isCOD && logistic.shipmentCost!==0" style="border-bottom-style: ridge;border-top-style: ridge;">{{grantTotal + logistic.shipmentCost - shippingdelta - voucherAmount | currency:"Rs. ":2}}</span>
+          <span ng-if="!paymentDetails.isCOD && logistic.shipmentCost===0" style="border-bottom-style: ridge;border-top-style: ridge;">{{grantTotal - voucherAmount  | currency:"Rs. ":2}}</span>
+          <br ng-if="!paymentDetails.isCOD">
+          <span ng-if="!paymentDetails.isCOD
+                    &&shippingdelta!==0">{{shippingdelta | currency:"Rs. ":2}}
+          </span><br ng-if="!paymentDetails.isCOD
+                        &&shippingdelta!==0">
+          </strong>
+    </div>
+   
+  </div>
+  <div>
+    <div class="text-left">
+      <h5>Thank you for Shopping with us</h5></div>
+    <p>
+      a) Keep this invoice and Manufacturer Box for Warranty purposes.
+      <br> b) The goods sold as part of this shipment are intended for end user consumption / retail sale and not for re­sale.
+      <br> c) Goods sold will not be exchanged/replaced beyond 15 days from the date of delivery. For complete details on return policy and list of network stores, please contact <b>07848866669</b> or write to us at care@nnnow.com.
+      <br> d) For feedback / queries, please contact 07848866669 or write to us at care@nnnow.com.
+    </p>
+    <div class="row text-right">
+      <div class="col-xs-4 col-xs-offset-8">
+        <p>
+          <strong>
+
+           Invoicing company <br>
+           {{ffcenterDetails.soldBy}}<br>
+            Authorised Signatory
+
+            </strong>
+        </p>
+      </div>
+    </div>
+    <div class="text-center">
+      <p>This is a computer generated Invoice.No signature is required.</p>
+    </div>
+  </div>
+</div>
+<div><img src="/app/images/footer.png"></div>

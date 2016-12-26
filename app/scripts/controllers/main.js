@@ -36,7 +36,6 @@ angular.module('omsieApp')
 
             MainService.getReturnData().then(function(data) {
                 $scope.returnData = data;
-                console.log(data);
             });
         }
     ]);

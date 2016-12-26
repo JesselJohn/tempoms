@@ -16,6 +16,7 @@ angular.module('omsieApp')
                     $http({
                         method: 'GET',
                         url: CONSTANTS.API_URL + "/api/order/query?" +
+                            "consignmentStatus=INVOICED&" +
                             "deliveryType=STOREPICK&" +
                             "sort=orderLines.slaEndTime,desc&" +
                             "page=0&" +

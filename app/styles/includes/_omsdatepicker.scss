@@ -1,0 +1,34 @@
+.oms-datepicker {
+    position: relative;
+    z-index: 1;
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        list-style: none;
+        background: #FFF;
+        padding: 0;
+    }
+}
+
+.btn {
+    background: #FFF;
+    border: 1px solide $color-2;
+    outline: 0;
+    [disabled] {
+        background: $color-3;
+    }
+}
+
+.glyphicon {
+    &.glyphicon-chevron-left {
+        &:before {
+            content: "<"
+        }
+    }
+    &.glyphicon-chevron-right {
+        &:before {
+            content: ">"
+        }
+    }
+}

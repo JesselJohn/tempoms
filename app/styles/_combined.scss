@@ -11,11 +11,26 @@
 
 @import "components/link";
 @import "components/list";
+@import "components/button";
 
 /**
- * Includes
+ * Includes Reusable
+ */
+
+@import "includes/omsbox";
+@import "includes/omsform";
+@import "includes/omsdatepicker";
+@import "includes/omsloader";
+
+/**
+ * Includes Common
  */
 
 @import "includes/header";
-@import "includes/omsbox";
+
+/**
+ * Includes Page-specific
+ */
+
 @import "includes/dashboard";
+@import "includes/pickuporder";

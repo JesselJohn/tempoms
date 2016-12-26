@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: PickuporderService', function () {
+describe('Service: PickupOrderService', function () {
 
   // load the service's module
   beforeEach(module('omsieApp'));
 
   // instantiate service
-  var PickuporderService;
-  beforeEach(inject(function (_PickuporderService_) {
-    PickuporderService = _PickuporderService_;
+  var PickupOrderService;
+  beforeEach(inject(function (_PickupOrderService_) {
+    PickupOrderService = _PickupOrderService_;
   }));
 
   it('should do something', function () {
-    expect(!!PickuporderService).toBe(true);
+    expect(!!PickupOrderService).toBe(true);
   });
 
 });
