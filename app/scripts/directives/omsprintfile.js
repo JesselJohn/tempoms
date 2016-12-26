@@ -9,7 +9,7 @@
 angular.module('omsieApp')
     .directive('omsPrintFile', function() {
         return {
-            templateUrl: '/views/print.html',
+            templateUrl: 'views/print.html',
             restrict: 'E'
         };
     });

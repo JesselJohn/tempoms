@@ -10,7 +10,7 @@ angular.module('omsieApp')
     .directive('omsHeaderBar', ['$timeout',
         function($timeout) {
             return {
-                templateUrl: '/views/omsheader.html',
+                templateUrl: 'views/omsheader.html',
                 restrict: 'E',
                 replace: true,
                 scope: {},

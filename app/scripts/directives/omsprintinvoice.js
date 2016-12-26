@@ -10,7 +10,7 @@ angular.module('omsieApp')
     .directive('omsPrintInvoice', ['$timeout',
         function($timeout) {
             return {
-                templateUrl: '/views/omsprintinvoice.html',
+                templateUrl: 'views/omsprintinvoice.html',
                 restrict: 'E',
                 controller: ['$scope',
                     function($scope) {

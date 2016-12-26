@@ -13,7 +13,7 @@ angular.module('omsieApp')
                 scope: {
                     'onFilterChange': "&"
                 },
-                templateUrl: '/views/omssearchblock.html',
+                templateUrl: 'views/omssearchblock.html',
                 restrict: 'E',
                 replace: true,
                 controller: ['$scope',
