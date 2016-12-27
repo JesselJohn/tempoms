@@ -13,7 +13,7 @@ var config = config || {},
                     'backend': 'https://kong-qa.ailiens.com:8443/bumblebee'
                 };
                 break;
-            case 'optimusprimeui-qa.ailiens.com':
+            case 'optimusprimeui-dev.ailiens.com':
                 return {
                     'backend': 'https://kong-qa.ailiens.com:8443/bumblebee'
                 };
