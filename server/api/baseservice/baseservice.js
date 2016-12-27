@@ -13,10 +13,10 @@ var loggerFunction = function(options, getrequest, returnBody) {
 };
 
 
-var tryAgain = function(getrequest, body ,operation , options) {
-    
+var tryAgain = function(getrequest, body, operation, options) {
+
     if ((getrequest.res.statusCode >= 200 && getrequest.res.statusCode < 299) || getrequest.res.statusCode === 304) {
-         return {"body"  : body ,"resolve" :true }
+        return { "body": body, "resolve": true }
     } else {
         if (getrequest.res.statusCode >= 500 && getrequest.res.statusCode < 600) {
             var returnBody = {
@@ -31,19 +31,19 @@ var tryAgain = function(getrequest, body ,operation , options) {
             };
         }
 
-        return {"body"  : returnBody ,"resolve" :false };
-       
+        return { "body": returnBody, "resolve": false };
+
     }
 }
 
 var callFunction = function(options, sendData) {
-    
+
     var operation = retry.operation(environment.retryconfiguration);
 
     var deffered = q.defer();
     operation.attempt(function(currentAttempt) {
 
-        
+
         var body = '';
         var getrequest = https.request(options, function(response) {
             // Collect all chuncks
@@ -58,8 +58,8 @@ var callFunction = function(options, sendData) {
             // If error than try again
             // If everything success than return from attempt function (if u return it will not try again)
             response.on('end', function() {
-            var  tempdata = tryAgain(getrequest, body , operation , options);
-            tempdata.resolve ? deffered.resolve(tempdata.body): deffered.reject(tempdata.body);
+                var tempdata = tryAgain(getrequest, body, operation, options);
+                tempdata.resolve ? deffered.resolve(tempdata.body) : deffered.reject(tempdata.body);
             });
         }).on('error', function(err) {
 
@@ -73,7 +73,7 @@ var callFunction = function(options, sendData) {
         getrequest.end();
 
     });
-    
+
     return deffered.promise;
 
 };
