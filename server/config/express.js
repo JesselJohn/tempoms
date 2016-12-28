@@ -56,28 +56,28 @@ module.exports = function(app) {
     }));
   }*/
 
-  app.set('appPath', path.join(config.root, 'app'));
+  app.set('appPath', path.join(config.root, 'dist'));
 
   if ('production' === env) {
-    app.use(favicon(path.join(config.root, 'app', 'favicon.ico')));
+    app.use(favicon(path.join(config.root, 'dist', 'favicon.ico')));
     app.use(express.static(app.get('appPath')));
     app.use(morgan('dev'));
   }
 
   if ('production_ec2' === env) {
-    app.use(favicon(path.join(config.root, 'app', 'favicon.ico')));
+    app.use(favicon(path.join(config.root, 'dist', 'favicon.ico')));
     app.use(express.static(app.get('appPath')));
     app.use(morgan('dev'));
   }
 
   if ('qa' === env) {
-    app.use(favicon(path.join(config.root, 'app', 'favicon.ico')));
+    app.use(favicon(path.join(config.root, 'dist', 'favicon.ico')));
     app.use(express.static(app.get('appPath')));
     app.use(morgan('dev'));
   }
 
   if ('optimusuidev' === env) {
-    app.use(favicon(path.join(config.root, 'app', 'favicon.ico')));
+    app.use(favicon(path.join(config.root, 'dist', 'favicon.ico')));
     app.use(express.static(app.get('appPath')));
     app.use(morgan('dev'));
   }
