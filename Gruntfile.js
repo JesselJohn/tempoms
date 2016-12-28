@@ -543,4 +543,9 @@ module.exports = function(grunt) {
         'test',
         'build'
     ]);
+
+    grunt.registerTask('servedist', [
+        'express:dev',
+        'connect:dist:keepalive'
+    ]);
 };
