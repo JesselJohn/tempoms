@@ -1,0 +1,10 @@
+{
+    "realm": "AILSecure",
+    "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtOfTMQejnGA9oJ0ou8DazEYQu47YVKhm3MFaFGNP9EUI7cMNMFy497r4ElrnGL/B2ehe9ldmTYnd4aq+65FuwUfKnWnowDj1w/Qxj7DtyKdHOUzSZJyi07HrcdXCiTghFVb2biy8DPAu+ptg/KpyBjhGHO+/ZDBWJTBVi3st+W9huVvdGg+Jd7QhqUKaZExWqEDunqgx/MKkexLA73WZBn9qQu/0Nns6kfuZO+z+PvZrZ4ggMJGDoSdyVvi3Q4f7rTO1hWPlkOnjUIbW9iCqzuTxsybbkB88R3jmmYGTSpw/awz3bTg85d+/hlGoffiSrRF6YW8+rtVXu5tE/0JPhQIDAQAB",
+    "auth-server-url": "http://keycloak-dev.ailiens.com:8080/auth",
+    "ssl-required": "none",
+    "resource": "OptimusPrimeUI",
+    "credentials": {
+        "secret": "f232570e-850d-46d2-8ee4-836a90b0653b"
+    }
+}
