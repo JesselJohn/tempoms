@@ -53,7 +53,7 @@ config.pincode = {
             minlength: 6
         },
         type: 'autoCompleteSearch',
-        function: 'getPincodes'
+        functionFn: 'getPincodes'
     }, {
         id: 'pincode_country',
         name: 'Country',
@@ -291,7 +291,7 @@ config.fulfill = {
             id: 'pincode',
             name: 'Pincode',
             type: 'autocomplete',
-            function: 'getPincodes',
+            functionFn: 'getPincodes',
             editable: false,
             searchable: true,
             validate: {
@@ -802,7 +802,7 @@ config.pincodeservice = {
         },
         searchField: 'id',
         type: 'autocomplete',
-        function: 'getPincodes'
+        functionFn: 'getPincodes'
     }, {
         id: 'country',
         name: 'Country',
@@ -1121,7 +1121,7 @@ config.shipment = {
         id: 'dest_pincode',
         name: 'Dest Pincode',
         type: 'autocomplete',
-        function: 'getPincodes',
+        functionFn: 'getPincodes',
         editable: false,
         searchable: true,
         fieldName: 'pincode'
@@ -1628,7 +1628,7 @@ config.rpincodeservice = {
         },
         searchField: 'id',
         type: 'autocomplete',
-        function: 'getPincodes'
+        functionFn: 'getPincodes'
     }, {
         id: 'capacity',
         name: 'Capacity',
@@ -2024,7 +2024,7 @@ config.handover = {
         id: 'dest_pincode',
         name: 'Dest Pincode',
         type: 'autocomplete',
-        function: 'getPincodes',
+        functionFn: 'getPincodes',
         editable: false,
         searchable: true,
         fieldName: 'pincode'
@@ -2214,9 +2214,16 @@ config.service_cutoff = {
 var keycloak = new Keycloak("scripts/keycloak.config.json");
 
 angular.element(document).ready(function() {
-    keycloak.init({
-        onLoad: 'login-required'
-    }).success(function() {
-        angular.bootstrap(document, ['omsieApp']);
-    });
+    /**
+     * Temporary
+     */
+    angular.bootstrap(document, ['omsieApp']);
+    /**
+     * ByPassed
+     */
+    // keycloak.init({
+    //     onLoad: 'login-required'
+    // }).success(function() {
+    //     angular.bootstrap(document, ['omsieApp']);
+    // });
 });

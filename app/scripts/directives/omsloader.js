@@ -12,9 +12,11 @@ angular.module('omsieApp')
             scope: {},
             template: function(element, attrs) {
                 return '' +
-                    '<svg class="oms-loader" width="' + attrs.width + '" height="' + attrs.height + '">' +
-                    '    <image xlink:href="/images/rolling.svg" src="/images/rolling.gif" width="' + attrs.width + '" height="' + attrs.height + '" />' +
-                    '</svg>';
+                    '<div>'+
+                    '   <svg class="oms-loader" width="' + attrs.width + '" height="' + attrs.height + '">' +
+                    '        <image xlink:href="/images/rolling.svg" src="/images/rolling.gif" width="' + attrs.width + '" height="' + attrs.height + '" />' +
+                    '   </svg>'+
+                    '</div>';
             },
             restrict: 'E',
             replace: true

@@ -26,6 +26,8 @@ module.exports = function(config) {
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/html5shiv/dist/html5shiv.js',
+      'app/bower_components/respond/dest/respond.src.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

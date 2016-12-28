@@ -12,6 +12,7 @@ angular.module('omsieApp')
             return {
                 templateUrl: 'views/omsprintinvoice.html',
                 restrict: 'E',
+                replace: true,
                 controller: ['$scope',
                     function($scope) {
                         ///////////////

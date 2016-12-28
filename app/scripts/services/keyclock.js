@@ -1,3 +1,29 @@
+var XMLHttpFactories = [
+    function() {
+        return new XMLHttpRequest() },
+    function() {
+        return new ActiveXObject("Msxml2.XMLHTTP") },
+    function() {
+        return new ActiveXObject("Msxml3.XMLHTTP") },
+    function() {
+        return new ActiveXObject("Microsoft.XMLHTTP") }
+];
+
+function createXMLHTTPObject() {
+    var xmlhttp = false;
+    for (var i = 0; i < XMLHttpFactories.length; i++) {
+        try {
+            xmlhttp = XMLHttpFactories[i]();
+        } catch (e) {
+            continue;
+        }
+        break;
+    }
+    return xmlhttp;
+}
+
+window.addEventListener = window.attachEvent || window.addEventListener;
+///////
 (function(window, undefined) {
     var Keycloak = function(config) {
         if (!(this instanceof Keycloak)) {
@@ -89,8 +115,12 @@
 
                 if (callback) {
                     setupCheckLoginIframe();
-                    window.history.replaceState({}, null, callback.newUrl);
                     processCallback(callback, initPromise);
+                    try {
+                        window.history.replaceState({}, null, callback.newUrl);
+                    } catch (err) {
+                        window.location.href = callback.newUrl;
+                    }
                     return;
                 } else if (initOptions) {
                     if (initOptions.token || initOptions.refreshToken) {
@@ -370,7 +400,7 @@
                 var params = 'code=' + code + '&grant_type=authorization_code';
                 var url = getRealmUrl() + '/protocol/openid-connect/token';
 
-                var req = new XMLHttpRequest();
+                var req = new createXMLHTTPObject();
                 req.open('POST', url, true);
                 req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 

@@ -1,75 +1,79 @@
-<header>
-    <div class="header">
-        <ul class="navigation-links oms-list-inline">
-            <li>
-                <a href="/" class="oms-link oms-link-white oms-bg">
-                    Process
-                </a>
-            </li>
-            <li>
-                <a href="/" class="oms-link oms-link-white oms-bg">
-                    Logistics
-                </a>
-            </li>
-            <li>
-                <a href="/" class="oms-link oms-link-white oms-bg">
-                    USI
-                </a>
-            </li>
-        </ul>
-        <ul class="header-user-info oms-list-inline">
-            <li>
-                <span href="/" class="oms-bg">
-                    Hello
-                    <span ng-bind="userInfo.preferred_username"></span>
-                </span>
-            </li>
-            <li>
-                <span class="oms-link oms-link-white oms-bg" ng-click="logout()">
-                    Logout
-                </span>
-            </li>
-        </ul>
-    </div>
-    <div class="sidebar">
-        <navbar class="sidebar-links">
-            <ul class="oms-list-vertical">
+<div class="header-wrapper">
+    <header>
+        <div class="header">
+            <ul class="navigation-links oms-list-inline">
                 <li>
                     <a href="/" class="oms-link oms-link-white oms-bg">
-                        Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="/pickuporder" class="oms-link oms-link-white oms-bg">
-                        Pickup Orders
+                        Process
                     </a>
                 </li>
                 <li>
                     <a href="/" class="oms-link oms-link-white oms-bg">
-                        Delivery Orders
+                        Logistics
                     </a>
                 </li>
                 <li>
                     <a href="/" class="oms-link oms-link-white oms-bg">
-                        Missed Orders
-                    </a>
-                </li>
-                <li>
-                    <a href="/" class="oms-link oms-link-white oms-bg">
-                        Delayed Orders
-                    </a>
-                </li>
-                <li>
-                    <a href="/" class="oms-link oms-link-white oms-bg">
-                        Handover
-                    </a>
-                </li>
-                <li>
-                    <a href="/" class="oms-link oms-link-white oms-bg">
-                        Placed By Me
+                        USI
                     </a>
                 </li>
             </ul>
-        </navbar>
-    </div>
-</header>
+            <ul class="header-user-info oms-list-inline">
+                <li>
+                    <span href="/" class="oms-bg">
+                        Hello
+                        <span ng-bind="userInfo.preferred_username"></span>
+                    </span>
+                </li>
+                <li>
+                    <span class="oms-link oms-link-white oms-bg" ng-click="logout()">
+                        Logout
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-links">
+                <navbar>
+                    <ul class="oms-list-vertical">
+                        <li>
+                            <a href="/" class="oms-link oms-link-white oms-bg">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/pickuporder" class="oms-link oms-link-white oms-bg">
+                                Pickup Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="oms-link oms-link-white oms-bg">
+                                Delivery Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="oms-link oms-link-white oms-bg">
+                                Missed Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="oms-link oms-link-white oms-bg">
+                                Delayed Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="oms-link oms-link-white oms-bg">
+                                Handover
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="oms-link oms-link-white oms-bg">
+                                Placed By Me
+                            </a>
+                        </li>
+                    </ul>
+                </navbar>
+            </div>
+        </div>
+    </header>
+</div>
