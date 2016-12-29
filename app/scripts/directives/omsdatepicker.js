@@ -22,7 +22,6 @@ angular.module('omsieApp')
                 '           is-open="opened"' +
                 '           min-date="minDate"' +
                 '           show-weeks="false"' +
-                '           show-button-bar="false"' +
                 '           datepicker-options="dateOptions"' +
                 '           date-disabled="disabled(date, mode)"' +
                 '           close-text="Close"' +

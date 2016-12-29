@@ -20,14 +20,14 @@
                     <div class="oms-box-col-th">
                         Item Count
                     </div>
-                    <div class="oms-box-col-th">
-                        Payment Type
-                    </div>
                     <div class="oms-box-col-th" style="max-width:70px">
                         Consignment Value
                     </div>
                     <div class="oms-box-col-th">
                         Customer Name
+                    </div>
+                    <div class="oms-box-col-th">
+                        AWB
                     </div>
                     <div class="oms-box-col-th">
                         Ordering Store
@@ -39,10 +39,19 @@
                         Order Status
                     </div>
                     <div class="oms-box-col-th">
+                        Delivery Date
+                    </div>
+                    <div class="oms-box-col-th">
                         Consignment Status
                     </div>
                     <div class="oms-box-col-th">
                         Consignment Stamp
+                    </div>
+                    <div class="oms-box-col-th">
+                        Initial Delivery Type
+                    </div>
+                    <div class="oms-box-col-th">
+                        Delivery Type
                     </div>
                     <div class="oms-box-col-th">
                         Count Down
@@ -55,14 +64,17 @@
                     <div class="oms-box-col" ng-bind="data.orderId"></div>
                     <div class="oms-box-col" ng-bind="data.orderDate"></div>
                     <div class="oms-box-col" ng-bind="data.consignmentItemCount"></div>
-                    <div class="oms-box-col" ng-bind="data.paymentType"></div>
                     <div class="oms-box-col" ng-bind="'Rs. '+data.consignmentValue"></div>
                     <div class="oms-box-col" ng-bind="data.customerName"></div>
+                    <div class="oms-box-col" ng-bind="data.shipmentId"></div>
                     <div class="oms-box-col" ng-bind="data.orderingStore"></div>
                     <div class="oms-box-col" ng-bind="data.fullfilmentCenter"></div>
                     <div class="oms-box-col" ng-bind="data.orderStatus"></div>
+                    <div class="oms-box-col" ng-bind="data.deliveryDate"></div>
                     <div class="oms-box-col" ng-bind="data.consignmentStatus"></div>
                     <div class="oms-box-col" ng-bind="data.consignmentStamp"></div>
+                    <div class="oms-box-col" ng-bind="data.deliveryType"></div>
+                    <div class="oms-box-col" ng-bind="data.fulfilmentType"></div>
                     <div class="oms-box-col" ng-bind="data.countDown"></div>
                 </div>
             </div>

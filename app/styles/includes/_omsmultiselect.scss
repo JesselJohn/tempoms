@@ -1,7 +1,9 @@
-.oms-multi-select-wrapper {}
+.oms-multi-select-wrapper {
+    position: relative;
+    z-index: 1;
+}
 
 .oms-multi-select {
-    position: relative;
     &:after {
         @extend .font-size-small;
         content: "V";
@@ -19,9 +21,18 @@
     position: absolute;
     top: 100%;
     left: 0;
+    background: #FFF;
+    width: 100%;
+    border: 1px solid $color-2;
+    max-height: 170px;
+    overflow: auto;
 }
 
 .oms-multi-select-options {
     display: block;
-    height: 30px;
+    padding: 8px 5px;
+    cursor: pointer;
+    &:hover {
+        background: $color-3;
+    }
 }
