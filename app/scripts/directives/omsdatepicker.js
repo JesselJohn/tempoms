@@ -25,7 +25,6 @@ angular.module('omsieApp')
                 '           show-button-bar="false"' +
                 '           datepicker-options="dateOptions"' +
                 '           date-disabled="disabled(date, mode)"' +
-                '           ng-required="true"' +
                 '           close-text="Close"' +
                 '           ng-click="open($event)" />' +
                 '</div>',
@@ -56,7 +55,7 @@ angular.module('omsieApp')
                         'formatYear': 'yy',
                         'startingDay': 1
                     };
-                    $scope.format = 'dd-MMMM-yyyy';
+                    $scope.format = null;
                     $scope.opened = false;
                     $scope.disabled = disabledFn;
                     $scope.open = openFn;

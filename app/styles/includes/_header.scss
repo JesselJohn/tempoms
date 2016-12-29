@@ -36,8 +36,10 @@ $navbar-links-height: 40px;
  */
 
 .header-wrapper {
+    position: relative;
     height: $header-height;
     width: 100%;
+    z-index: 2;
 }
 
 .header {

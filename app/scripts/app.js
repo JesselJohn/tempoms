@@ -26,10 +26,10 @@ angular
                     controller: 'MainCtrl',
                     controllerAs: 'main'
                 })
-                .when('/pickuporder', {
-                    templateUrl: 'views/pickuporder.html',
-                    controller: 'PickuporderCtrl',
-                    controllerAs: 'pickup'
+                .when('/deliveryorder', {
+                    templateUrl: 'views/deliveryorder.html',
+                    controller: 'DeliveryorderCtrl',
+                    controllerAs: 'delivery'
                 })
                 .when('/orderdetail/:consignmentId', {
                     templateUrl: 'views/orderdetail.html',

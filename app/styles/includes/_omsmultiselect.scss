@@ -1,0 +1,27 @@
+.oms-multi-select-wrapper {}
+
+.oms-multi-select {
+    position: relative;
+    &:after {
+        @extend .font-size-small;
+        content: "V";
+        width: 20px;
+        height: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+    }
+}
+
+.oms-multi-select-options-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.oms-multi-select-options {
+    display: block;
+    height: 30px;
+}

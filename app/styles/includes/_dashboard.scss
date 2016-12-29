@@ -14,9 +14,9 @@ $box-header-padding: 5px 10px;
     .pickup-th,
     .allorders-th,
     .retorders-th {
+        @extend .font-size-large;
         color: #FFF;
         padding: $box-header-padding;
-        font-size: $font-size-large;
     }
     .delivery-th {
         background: $color-temp-3;

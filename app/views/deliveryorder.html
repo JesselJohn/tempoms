@@ -1,10 +1,10 @@
-<div class="has-navbar _pcko">
-    <h1>PickUp Order</h1>
-    <center ng-show="!pickUpdata" style="margin-top:80px;">
+<div class="has-navbar _delo">
+    <h1>Delivery Order</h1>
+    <center ng-show="!DeliveryOrderData.data" style="margin-top:80px;">
         <oms-loader data-width="30" data-height="30"></oms-loader>
     </center>
-    <div ng-show="pickUpdata">
-        <oms-search-block class="search-block"></oms-search-block>
+    <div ng-show="DeliveryOrderData.data">
+        <oms-delivery-search-block delivery-data="DeliveryOrderData" on-filter-change="onFilterChange(filter)" class="search-block"></oms-delivery-search-block>
         <div class="oms-box">
             <div class="oms-box-table">
                 <div class="oms-box-row">
@@ -48,7 +48,7 @@
                         Count Down
                     </div>
                 </div>
-                <div class="oms-box-row" ng-repeat="data in pickUpdata.consignment">
+                <div class="oms-box-row" ng-repeat="data in DeliveryOrderData.data.consignment">
                     <div class="oms-box-col">
                         <a class="oms-link" ng-href="orderdetail/{{data.consignmentId}}" ng-bind="data.consignmentId"></a>
                     </div>
