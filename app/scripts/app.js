@@ -46,6 +46,11 @@ angular
                     controller: 'DelayedorderCtrl',
                     controllerAs: 'delayed'
                 })
+                .when('/handover', {
+                    templateUrl: 'views/handover.html',
+                    controller: 'HandoverCtrl',
+                    controllerAs: 'handover'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
