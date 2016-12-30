@@ -20,20 +20,20 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div>Reason</div>
-                <input class="oms-input-text" ng-model="reason" />
+                <select class="oms-select missed-order-select" ng-model="reasonVal" ng-options="item as item.label for item in missedData.reasons">
+                    <option value="">-- Select Reason --</option>
+                </select>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div>Order Status</div>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
+                <select class="oms-select missed-order-select" ng-model="orderStatus" ng-options="item as item.label for item in missedData.orderStatuses">
+                    <option value="">-- Select Order Status --</option>
                 </select>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div>Current Status</div>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
+                <select class="oms-select missed-order-select" ng-model="currentStatus" ng-options="item as item.label for item in missedData.currentStatuses">
+                    <option value="">-- Select Current Status --</option>
                 </select>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">

@@ -28,17 +28,21 @@ angular.module('omsieApp')
                         }
 
                         function filterSearchFn() {
+                            var reasonVal = ($scope.reasonVal || {}).value,
+                                orderStatus = ($scope.orderStatus || {}).value,
+                                consignmentStatus = ($scope.currentStatus || {}).value;
                             $scope.missedData.data = null;
                             $scope.onFilterChange({
                                 'filter': {
+                                    'itemId': $scope.itemId,
                                     'consignmentId': $scope.consignmentId,
                                     'orderId': $scope.orderId,
                                     'customerId': $scope.customerId,
-                                    'orderingCenterName': $scope.orderingCenterName,
-                                    'orderingCenterId': $scope.orderingCenterId,
-                                    'fulfilmentCenterId': $scope.fulfilmentCenterId,
-                                    'fulfillmentCenterName': $scope.fulfillmentCenterName,
-                                    'orderStatus': undefined,
+                                    'reason': reasonVal,
+                                    'orderStatus': orderStatus,
+                                    'consignmentStatus': consignmentStatus,
+                                    'HUCode': $scope.huCode,
+                                    'EAN': $scope.eanVal,
                                     'page': "0",
                                     'size': "10"
                                 }
