@@ -18,7 +18,9 @@ angular.module('omsieApp')
                         method: 'GET',
                         url: "https://kong-qa.ailiens.com:8443/bumblebee" + path
                     }).success(function(data) {
-                        defer.resolve(data);
+                        var invocation = new XMLHttpRequest();
+
+
                     }).error(function(err) {
                         defer.reject(err);
                     });

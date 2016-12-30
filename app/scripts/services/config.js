@@ -5,7 +5,7 @@ var config = config || {},
         switch (window.location.hostname) {
             case 'localhost':
                 return {
-                    'backend': 'http://localhost:9000'
+                    'backend': 'https://kong-qa.ailiens.com:8443/bumblebee'
                 };
                 break;
             case 'optimusprimeui-env.us-east-1.elasticbeanstalk.com':
