@@ -34,9 +34,10 @@ processedData['orderId'] = response['orderId'];
 
 
 processedData['orderDate'] = response['orderDate'].split("[")[0];
-
-
-
+if(response.consignment.initialFfType) {
+processedData.initialFfType = response.consignment.initialFfType.ffType;
+    
+}
 if (isRealValue(response['customerDetails'])) {
 processedData['customerName'] = response['customerDetails']['firstName'];
 if (response['customerDetails']['lastName'] !== null) {

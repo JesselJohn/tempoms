@@ -37,9 +37,14 @@ angular
                     controllerAs: 'orderdetail'
                 })
                 .when('/missedorder', {
-                  templateUrl: 'views/missedorder.html',
-                  controller: 'MissedorderCtrl',
-                  controllerAs: 'missed'
+                    templateUrl: 'views/missedorder.html',
+                    controller: 'MissedorderCtrl',
+                    controllerAs: 'missed'
+                })
+                .when('/delayedorder', {
+                    templateUrl: 'views/delayedorder.html',
+                    controller: 'DelayedorderCtrl',
+                    controllerAs: 'delayed'
                 })
                 .otherwise({
                     redirectTo: '/'

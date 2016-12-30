@@ -496,16 +496,18 @@ var getDashboardCounts = function(req, res) {
   }
 
   q.all(promises).then(function(response) {
-    var data = {};
-    if(response.length > 1) {
-     var warehouse = JSON.parse(response[0]);
-      var store = JSON.parse(response[1]);
-      data.warehouse = warehouse;
-      data.store = store;
-    } else {
-      data.store = JSON.parse(response[0]);
-    }
-    return res.status(200).send(data);
+     var data = {};
+if(response.length > 1) {
+    var warehouse = JSON.parse(response[0]);
+    var store = JSON.parse(response[1]);
+    data.warehouse = warehouse.Warehouse;
+    data.store = store.Store;
+}else {
+    var temp = JSON.parse(response);
+    data.warehouse = temp.Warehouse;
+    data.store = temp.Store;
+}
+   return res.status(200).send(data);
   }, function(err) {
     return res.status(error.statusCode).send(error);
   });

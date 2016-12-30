@@ -89,7 +89,7 @@ var getwarehouse = function(req, res) {
     var queryObject = req.query;
 
     if (!req.headers.isadmin) {
-        queryObject.warehouseId = req.headers.storeid;
+        queryObject.ffCenterId = req.headers.storeid;
     };
 
     
@@ -119,8 +119,6 @@ var getwarehouse = function(req, res) {
 
     options.path = environment.optimusPrime.domainName + '/returnConsignments/search?' +
         searchQuery;
-
-
     Order.getData(options)
         .then(function(response) {
 

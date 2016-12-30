@@ -37,27 +37,29 @@ angular.module('omsieApp')
                                 deliveryEndDate = $scope.deliveryData.deliveryEndDate ?
                                 $scope.deliveryData.deliveryEndDate.toISOString() : null;
                             $scope.deliveryData.data = null;
-                            $scope.onFilterChange({
-                                'filter': {
-                                    'consignmentId': $scope.consignmentId,
-                                    'orderId': $scope.orderId,
-                                    'orderDateStart': orderStartDate,
-                                    'orderDateEnd': orderEndDate,
-                                    'deliveryDateStart': deliveryStartDate,
-                                    'deliveryDateEnd': deliveryEndDate,
-                                    'customerId': $scope.customerId,
-                                    'orderingCenterName': $scope.orderingCenterName,
-                                    'orderingCenterId': $scope.orderingCenterId,
-                                    'fulfilmentCenterId': $scope.fulfilmentCenterId,
-                                    'fulfillmentCenterName': $scope.fulfillmentCenterName,
-                                    'orderStatus': $scope.deliveryData.orderStatusSelected.join(","),
-                                    'consignmentStatus': $scope.deliveryData.consignmentStatusSelected.join(","),
-                                    'fulfilmentType': $scope.deliveryData.fulfilmentTypeSelected.join(","),
-                                    'deliveryType': "DELIVERY",
-                                    'sort': "orderLines.slaEndTime,desc",
-                                    'page': "0",
-                                    'size': "10"
-                                }
+                            $scope.$$postDigest(function() {
+                                $scope.onFilterChange({
+                                    'filter': {
+                                        'consignmentId': $scope.consignmentId,
+                                        'orderId': $scope.orderId,
+                                        'orderDateStart': orderStartDate,
+                                        'orderDateEnd': orderEndDate,
+                                        'deliveryDateStart': deliveryStartDate,
+                                        'deliveryDateEnd': deliveryEndDate,
+                                        'customerId': $scope.customerId,
+                                        'orderingCenterName': $scope.orderingCenterName,
+                                        'orderingCenterId': $scope.orderingCenterId,
+                                        'fulfilmentCenterId': $scope.fulfilmentCenterId,
+                                        'fulfillmentCenterName': $scope.fulfillmentCenterName,
+                                        'orderStatus': $scope.deliveryData.orderStatusSelected.join(","),
+                                        'consignmentStatus': $scope.deliveryData.consignmentStatusSelected.join(","),
+                                        'fulfilmentType': $scope.deliveryData.fulfilmentTypeSelected.join(","),
+                                        'deliveryType': "DELIVERY",
+                                        'sort': "orderLines.slaEndTime,desc",
+                                        'page': "0",
+                                        'size': "10"
+                                    }
+                                });
                             });
                         };
 

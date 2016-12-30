@@ -109,6 +109,8 @@ var ProcessConsignmentObject = function(response, baseOption, fulfilmentCenterId
     processedData['consignmentDetails'] = {};
     processedData['consignmentDetails']['orderID'] = response['orderId'];
     processedData['consignmentDetails']['orderDate'] = response['orderDate'].split("[")[0];
+   // processedData['consignmentDetails'].initialFfType = response.consignment.initialFfType;
+    
 
     if (isRealValue(response['orderStatus'])) {
         processedData['consignmentDetails']['orderStatus'] = response['orderStatus']['orderStatus'];
