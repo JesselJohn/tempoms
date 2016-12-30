@@ -1,0 +1,52 @@
+<div>
+    <button class="oms-button" ng-click="toggleFormVisibility()">Search</button>
+    <form ng-show="isFormVisible">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>Item Id</div>
+                <input class="oms-input-text" ng-model="itemId" />
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>Consigment Id</div>
+                <input class="oms-input-text" ng-model="consignmentId" />
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>Order Id</div>
+                <input class="oms-input-text" ng-model="orderId" />
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>Customer Name</div>
+                <input class="oms-input-text" ng-model="customerId" />
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>Reason</div>
+                <input class="oms-input-text" ng-model="reason" />
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>Order Status</div>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>Current Status</div>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>HU Code</div>
+                <input class="oms-input-text" ng-model="huCode" />
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>EAN</div>
+                <input class="oms-input-text" ng-model="eanVal" />
+            </div>
+        </div>
+        <div style="margin-top:15px">
+            <button class="oms-button" ng-click="filterSearch()">Filter Results</button>
+        </div>
+    </form>
+</div>

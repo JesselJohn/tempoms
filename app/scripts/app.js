@@ -36,6 +36,11 @@ angular
                     controller: 'OrderdetailCtrl',
                     controllerAs: 'orderdetail'
                 })
+                .when('/missedorder', {
+                  templateUrl: 'views/missedorder.html',
+                  controller: 'MissedorderCtrl',
+                  controllerAs: 'missed'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

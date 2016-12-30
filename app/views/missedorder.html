@@ -1,0 +1,73 @@
+<div class="has-navbar _msdo">
+    <h1>Missed Order</h1>
+    <center ng-show="!MissedOrderData.data" style="margin-top:80px;">
+        <oms-loader data-width="30" data-height="30"></oms-loader>
+    </center>
+    <div ng-show="MissedOrderData.data">
+        <oms-missed-search-block missed-data="MissedOrderData" on-filter-change="onFilterChange(filter)" class="search-block"></oms-missed-search-block>
+        <div class="oms-box">
+            <div class="oms-box-table">
+                <div class="oms-box-row">
+                    <div class="oms-box-col-th">
+                        Item Id
+                    </div>
+                    <div class="oms-box-col-th">
+                        Consignment Id
+                    </div>
+                    <div class="oms-box-col-th">
+                        Order Id
+                    </div>
+                    <div class="oms-box-col-th">
+                        Order Date
+                    </div>
+                    <div class="oms-box-col-th">
+                        Payment Type
+                    </div>
+                    <div class="oms-box-col-th" style="max-width:70px">
+                        Consignment Value
+                    </div>
+                    <div class="oms-box-col-th">
+                        Customer Name
+                    </div>
+                    <div class="oms-box-col-th">
+                        Ordering Store
+                    </div>
+                    <div class="oms-box-col-th">
+                        Fulfilment Center
+                    </div>
+                    <div class="oms-box-col-th">
+                        Reason
+                    </div>
+                    <div class="oms-box-col-th">
+                        Order Status
+                    </div>
+                    <div class="oms-box-col-th">
+                        Current Status
+                    </div>
+                    <div class="oms-box-col-th">
+                        Consignment Stamp
+                    </div>
+                </div>
+                <div class="oms-box-row" ng-repeat="data in MissedOrderData.data.consignment">
+                    <div class="oms-box-col">
+                        <a class="oms-link" ng-href="orderdetail/{{data.consignmentId}}" ng-bind="data.itemId"></a>
+                    </div>
+                    <div class="oms-box-col" ng-bind="data.consignmentId"></div>
+                    <div class="oms-box-col" ng-bind="data.orderId"></div>
+                    <div class="oms-box-col" ng-bind="data.orderDate"></div>
+                    <div class="oms-box-col" ng-bind="data.paymentType"></div>
+                    <div class="oms-box-col" ng-bind="'Rs. '+data.consignmentValue"></div>
+                    <div class="oms-box-col" ng-bind="data.customerName"></div>
+                    <div class="oms-box-col" ng-bind="data.orderingStore"></div>
+                    <div class="oms-box-col" ng-bind="data.fullfilmentCenter"></div>
+                    <div class="oms-box-col" ng-bind="data.reason"></div>
+                    <div class="oms-box-col" ng-bind="data.orderStatus"></div>
+                    <div class="oms-box-col" ng-bind="data.consignmentStatus"></div>
+                    <div class="oms-box-col" ng-bind="data.consignmentStamp"></div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+        </div>
+    </div>
+</div>
