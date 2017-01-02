@@ -197,7 +197,7 @@ config.fulfill = {
             id: 'contactName',
             name: 'Contact Name',
             editable: false,
-            searchable: true,
+            searchable: true
         }, {
             id: 'phoneNumber',
             name: 'Phone Number',

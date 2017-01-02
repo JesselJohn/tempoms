@@ -1,11 +1,78 @@
 <div class="has-navbar _hndovr">
     <h1>Handover Page</h1>
-    <div class="handover-section">
-        <div class="handover-section-header">
-            <button class="oms-button">+</button> DELHIVERY Number of Shipment -
-            <span></span>
+    <center ng-show="!HandOverData.data" style="margin-top:80px;">
+        <oms-loader data-width="30" data-height="30"></oms-loader>
+    </center>
+    <div ng-show="HandOverData.data">
+        <div class="handover-section">
+            <div class="handover-section-header">
+                <button class="oms-button">+</button> DELHIVERY Number of Shipment -
+                <span></span>
+            </div>
+            <div class="oms-box">
+                <div class="oms-box-table">
+                    <div class="oms-box-row">
+                        <div class="oms-box-col-th">
+                            Select
+                        </div>
+                        <div class="oms-box-col-th">
+                            Shipment Id
+                        </div>
+                        <div class="oms-box-col-th">
+                            Master Bag Id
+                        </div>
+                        <div class="oms-box-col-th">
+                            OTP
+                        </div>
+                        <div class="oms-box-col-th" style="max-width:70px">
+                            Order ID
+                        </div>
+                        <div class="oms-box-col-th">
+                            AWB
+                        </div>
+                        <div class="oms-box-col-th">
+                            Fulfillment City
+                        </div>
+                        <div class="oms-box-col-th">
+                            Dest Pincode
+                        </div>
+                        <div class="oms-box-col-th">
+                            Destinaton City
+                        </div>
+                        <div class="oms-box-col-th">
+                            Delivered Date
+                        </div>
+                        <div class="oms-box-col-th">
+                            Packaging Type
+                        </div>
+                        <div class="oms-box-col-th">
+                            Amount
+                        </div>
+                        <div class="oms-box-col-th">
+                            Customer Name
+                        </div>
+                    </div>
+                    <div class="oms-box-row" ng-repeat="data in HandOverData.data.content|filter:'DELHIVERY'|orderBy:data.id track by data.id">
+                        <div class="oms-box-col">
+                            <input type="checkbox" />
+                        </div>
+                        <div class="oms-box-col" ng-bind="data.shipmentId"></div>
+                        <div class="oms-box-col" ng-bind=""></div>
+                        <div class="oms-box-col" ng-bind=""></div>
+                        <div class="oms-box-col" ng-bind="data.orderRef"></div>
+                        <div class="oms-box-col" ng-bind="data.awb"></div>
+                        <div class="oms-box-col" ng-bind="data.customerCity"></div>
+                        <div class="oms-box-col" ng-bind="data.dest_pincode"></div>
+                        <div class="oms-box-col" ng-bind="data.fulfillmentCity"></div>
+                        <div class="oms-box-col" ng-bind=""></div>
+                        <div class="oms-box-col" ng-bind="data.packagingType"></div>
+                        <div class="oms-box-col" ng-bind="data.amount"></div>
+                        <div class="oms-box-col" ng-bind="data.customerName"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- <div ng-repeat="">
-        </div> -->
+        <div class="">
+        </div>
     </div>
 </div>

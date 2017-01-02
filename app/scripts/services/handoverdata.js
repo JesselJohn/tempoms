@@ -8,16 +8,10 @@
  * Factory in the omsieApp.
  */
 angular.module('omsieApp')
-  .factory('HandOverData', function () {
-    // Service logic
-    // ...
+    .factory('HandOverData', function() {
+        var HandOverData = {
 
-    var meaningOfLife = 42;
+        };
 
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
-  });
+        return HandOverData;
+    });
